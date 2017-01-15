@@ -1,2 +1,2 @@
 # autozoom
-Fast, automatic zoom toolkit for Folium maps
+Fast, automated zoom toolkit for Folium maps
