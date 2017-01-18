@@ -1,4 +1,4 @@
-parse(df) :
+parse(geo, df) :
     latDict, lonDict = dict(), dict()
 
     # identify extreme most latitude and longitude coordinate pairs in each state
@@ -15,8 +15,11 @@ parse(df) :
                     for pair in coords :
                         latDict[pair[1]] = pair
                         lonDict[pair[0]] = pair
-
+    
     bounds = [list(reversed(l)) for l in [latDict[max([key for key in latDict.keys()])], latDict[min([key for key in latDict.keys()])],
-        lonDict[max([key for key in lonDict.keys()])], lonDict[min([key for key in lonDict.keys()])]]]
+                                          lonDict[max([key for key in lonDict.keys()])], lonDict[min([key for key in lonDict.keys()])]]]
+    # keep most extreme bounds to save maximum bounding triangle
+    triangle = bounds.remove(min([abs(max([key for key in latDict.keys()])), abs(min([key for key in latDict.keys()])), 
+                                  abs(max([key for key in lonDict.keys()])), abs(min([key for key in lonDict.keys()]))]))
 
-    return bounds
+    return bounds, triangle
