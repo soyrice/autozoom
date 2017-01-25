@@ -21,3 +21,7 @@ map_it.choropleth(geo_path = geo_path,
                  fill_opacity = 0.9,
                  line_opacity = 0.2)
 ```
+
+1/24/17: started `center()`. `center()` finds the spherical centroid of data entered into `parse()`. `center()` makes it easy for Folium to center a map on a geoJSON file, or on a sub-section of geoJSON data specified with a pandas dataframe.
+
+next: test and update center(); install `manager()`, a system to connects various functions, such as `parse()` and `center()`, in a user-friendly interface you can call in your web mapping workflow.
