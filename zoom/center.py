@@ -60,15 +60,15 @@ def center(triangle) :
         return angles
         
     def clockwise_or_counter(a, b, c):
-        ab = diff_cartesians(b, a)
-        bc = diff_cartesians(c, b)
+        ab = cartesians(b, a)
+        bc = cartesians(c, b)
         x = xprod(ab, bc)
         if x < 0:
             return 'clockwise'
         else x > 0:
             return 'counter'
             
-    def diff_cartesians(positive, negative):
+    def cartesians(positive, negative):
         return tuple(p - n for p, n in zip(positive, negative))
         
     def xprod(v1, v2):
